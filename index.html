@@ -4,6 +4,8 @@
   <title>Automatic Phone Call</title>
 </head>
 <body>
+  <h1 id="status">Calling...</h1>
+
   <script>
     // Get the phone number from the URL query parameter
     const urlParams = new URLSearchParams(window.location.search);
@@ -15,10 +17,17 @@
     // Automatically initiate the phone call
     const callLink = document.createElement('a');
     callLink.href = `tel:${strippedPhoneNumber}`;
-    callLink.textContent = 'Call';
+    callLink.textContent = phoneNumber;
 
     // Append the anchor element to the body or any other appropriate container
     document.body.appendChild(callLink);
+
+    // Automatically trigger the click event to initiate the phone call
+    callLink.click();
+
+    // Update the status message
+    const statusElement = document.getElementById('status');
+    statusElement.textContent = `Calling ${phoneNumber}...`;
   </script>
 </body>
 </html>
