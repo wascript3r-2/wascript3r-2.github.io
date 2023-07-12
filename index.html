@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Automatic Phone Call</title>
+</head>
+<body>
+  <script>
+    // Get the phone number from the URL query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const phoneNumber = urlParams.get('phone');
+
+    // Remove non-numeric characters from the phone number
+    const strippedPhoneNumber = phoneNumber.replace(/\D/g, '');
+
+    // Automatically initiate the phone call
+    const callLink = document.createElement('a');
+    callLink.href = `tel:${strippedPhoneNumber}`;
+    callLink.textContent = 'Call';
+
+    // Append the anchor element to the body or any other appropriate container
+    document.body.appendChild(callLink);
+  </script>
+</body>
+</html>
